@@ -22,6 +22,6 @@ export class Context {
     }
 
     private notifyObservers(key: string, value: any): void {
-        this.observers.forEach(observer => observer.onEvent(key, value));
+        this.observers.forEach(observer => observer.onEvent(key));
     }
 }
