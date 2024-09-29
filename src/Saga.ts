@@ -19,7 +19,7 @@ export class Saga
 
     async run(context: Context): Promise<void>
 	{
-		var executedSteps: Step[] = [];
+		const executedSteps: Step[] = [];
 
         for (const step of this.steps)
 		{
@@ -46,7 +46,7 @@ export class Saga
 
     private async compensateExecuted(context: Context, executedSteps: Step[]): Promise<void>
 	{
-		var steps = Array.from(executedSteps).reverse();
+		const steps = Array.from(executedSteps).reverse();
 
 		for (const step of steps)
 		{

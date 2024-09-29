@@ -1,6 +1,7 @@
 import { Context } from './Context';
 
-export interface Step {
+export interface Step
+{
     execute(context: Context): Promise<void>;
     compensate(context: Context): Promise<void>;
 }

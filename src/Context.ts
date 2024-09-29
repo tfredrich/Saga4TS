@@ -4,8 +4,6 @@ export class Context {
     private observers: Observer[] = [];
     private data: { [key: string]: any } = {};
 
-    constructor() { }
-
     get(key: string): any {
         return this.data[key];
     }
