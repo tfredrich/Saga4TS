@@ -1,7 +1,7 @@
 /**
  * Observer interface
  */
-export interface Observer
+export interface Observer<T>
 {
-    onEvent(event: any): void;
+    onEvent(event: T): void;
 }

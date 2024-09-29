@@ -1,7 +1,8 @@
 import { Observer } from './Observer';
+import { ContextEvent } from './ContextEvent';
 
 export class Context {
-    private observers: Observer[] = [];
+    private observers: Observer<ContextEvent>[] = [];
     private data: { [key: string]: any } = {};
 
     get(key: string): any {
@@ -15,11 +16,13 @@ export class Context {
         }
     }
 
-    addObserver(observer: Observer): void {
+    addObserver(observer: Observer<ContextEvent>): void
+	{
         this.observers.push(observer);
     }
 
-    private notifyObservers(key: string, value: any): void {
-        this.observers.forEach(observer => observer.onEvent(key));
+    private notifyObservers(key: string, value: any): void
+	{
+        this.observers.forEach(observer => observer.onEvent(new ContextEvent(key, value)));
     }
 }
